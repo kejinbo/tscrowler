@@ -7,7 +7,7 @@ export interface Analyzer {
 }
 
 class Crowler {
-  private filePath = path.resolve(__dirname, "../data/ladyInfo.json");
+  private filePath = path.resolve(__dirname, "../../data/ladyInfo.json");
 
   async getRawHtml() {
     const result = await superagent.get(this.url);
