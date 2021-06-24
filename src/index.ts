@@ -1,7 +1,6 @@
 import express from "express";
 import cookieSession from "cookie-session";
-import "./controller/LoginController";
-import "./controller/CrowlerController";
+import "./controller";
 import router from "./router";
 
 const app = express();

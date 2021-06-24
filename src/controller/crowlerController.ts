@@ -14,9 +14,15 @@ interface BodyRequest extends Request {
 }
 
 // 使用 cookie 中间件 对登录状态进行校验
-const checkLogin = (req: Request, res: Response, next: NextFunction) => {
+const checkLogin = (req: Request, res: Response, next: NextFunction): void => {
   const isLogin = req.session ? req.session.login : false;
+  console.log("checkLogin");
   isLogin ? next() : res.json(getResponseData(-100, "请先登录", {}));
+};
+
+const test = (req: Request, res: Response, next: NextFunction): void => {
+  console.log("test middlewares");
+  next();
 };
 
 @controller
@@ -32,6 +38,7 @@ export class CrowlerController {
 
   @get("/showData")
   @use(checkLogin)
+  @use(test)
   showData(req: BodyRequest, res: Response) {
     try {
       const position = path.resolve(__dirname, "../../data/ladyInfo.json");
