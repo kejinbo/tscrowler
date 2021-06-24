@@ -4,7 +4,7 @@ import path from "path";
 import { Request, Response, NextFunction } from "express";
 import BoAnalyzer from "../utils/analyzer";
 import Crowler from "../utils/crowler";
-import { controller, get, use } from "./decorator";
+import { controller, get, use } from "../decorator";
 import { getResponseData } from "../utils/util";
 
 interface BodyRequest extends Request {
@@ -20,7 +20,7 @@ const checkLogin = (req: Request, res: Response, next: NextFunction) => {
 };
 
 @controller
-class CrowlerController {
+export class CrowlerController {
   @get("/getInfo")
   @use(checkLogin)
   getInfo(req: BodyRequest, res: Response) {

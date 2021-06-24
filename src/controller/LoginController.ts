@@ -1,6 +1,6 @@
 import "reflect-metadata";
 import { Request, Response } from "express";
-import { controller, get, post } from "./decorator";
+import { controller, get, post } from "../decorator";
 import { getResponseData } from "../utils/util";
 
 interface BodyRequest extends Request {
@@ -10,7 +10,7 @@ interface BodyRequest extends Request {
 }
 
 @controller
-class LoginController {
+export class LoginController {
   @get("/logout")
   logout(req: BodyRequest, res: Response) {
     if (req.session) {

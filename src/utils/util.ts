@@ -6,6 +6,11 @@ interface Result {
   returnData: any;
 }
 
+export enum REQ_METHOD {
+  "get" = "get",
+  "post" = "post",
+}
+
 export const getResponseData = (code: number, msg: string, data: any): Result => {
   return {
     returnCode: code,

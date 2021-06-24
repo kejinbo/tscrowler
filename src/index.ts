@@ -1,8 +1,8 @@
 import express from "express";
 import cookieSession from "cookie-session";
 import "./controller/LoginController";
-import "./controller/crowlerController";
-import { router } from "./controller/decorator";
+import "./controller/CrowlerController";
+import router from "./router";
 
 const app = express();
 app.use(express.json());
